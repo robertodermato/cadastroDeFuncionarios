@@ -1,4 +1,4 @@
-public abstract class Funcionario {
+public abstract class Funcionario implements Comparable<Funcionario>{
 
     private String codigo;
     private String nome;
@@ -9,6 +9,12 @@ public abstract class Funcionario {
         this.nome = nome;
         this.salario = salario;
     }
+
+    public int compareTo(Funcionario outro){
+        if (getSalario()>outro.getSalario()) return 1;
+        if (getSalario()<outro.getSalario()) return -1;
+        return 0;
+    };
 
     public String getCodigo() {
         return codigo;
@@ -38,6 +44,6 @@ public abstract class Funcionario {
 
     @Override
     public String toString() {
-        return "Funcionario: " + nome + "Código: " + codigo + "Salário: " + salario;
+        return "Funcionario: " + nome + " - Código: " + codigo + " - Salário: " + salario;
     }
 }
